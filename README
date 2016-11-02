@@ -1,3 +1,8 @@
+This module adds support for Elecraft KPod product - http://www.elecraft.com/k-pod/k-pod.htm.
+
+You need to have firmware update to 1.09 - check here: http://www.elecraft.com/software/elecraft_software_page.htm
+Documentation check here: http://www.elecraft.com/K2_Manual_Download_Page.htm#kpod
+
 you need to install Python hid library: https://pypi.python.org/pypi/hid
 
 For example for local installation just for 'user' user on a Debian workstation:
@@ -6,3 +11,10 @@ For example for local installation just for 'user' user on a Debian workstation:
 export PYTHONPATH="/home/user/local-PYTHONPATH/lib/python2.7/site-packages/"
 (2) mkdir -p /home/user/local-PYTHONPATH/lib/python2.7/site-packages/
 (3) unpack  hid-0.1.1.tar.gz and go inside it. run 'python setup.py install --prefix=/home/user/local-PYTHONPATH'
+
+Also in order to support this library to work you might install the following package(on a Debian system):
+apt-get install libhidapi-hidraw0
+
+Also in order to let an application to have access to a KPod you need to add permission for your app.
+The simplest way to add a UDEV rule create a file in /etc/udev/rules.d directory:
+KERNEL=="hidraw*", ATTRS{idVendor}=="04d8", ATTRS{idProduct}=="f12d", MODE="0666"
