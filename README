@@ -1,0 +1,8 @@
+you need to install Python hid library: https://pypi.python.org/pypi/hid
+
+For example for local installation just for 'user' user on a Debian workstation:
+
+(1) define env variable:
+export PYTHONPATH="/home/user/local-PYTHONPATH/lib/python2.7/site-packages/"
+(2) mkdir -p /home/user/local-PYTHONPATH/lib/python2.7/site-packages/
+(3) unpack  hid-0.1.1.tar.gz and go inside it. run 'python setup.py install --prefix=/home/user/local-PYTHONPATH'
